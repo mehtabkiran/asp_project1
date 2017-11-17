@@ -42,6 +42,8 @@ namespace asp_project1
             // Add framework services.
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<asp_proj1Context>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("MyCS")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -81,7 +83,7 @@ namespace asp_project1
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Staff}/{action=dashboard}/{id?}");
             });
         }
     }

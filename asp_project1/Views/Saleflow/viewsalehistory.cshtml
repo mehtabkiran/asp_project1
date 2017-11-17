@@ -1,0 +1,81 @@
+@model IEnumerable<asp_project1.Models.SaleHistory>
+
+    @{
+        ViewData["Title"] = "viewsalehistory";
+    }
+
+    <h2>View Sale History</h2>
+
+    <p>
+    </p>
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerPhoneno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleQuantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalePrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Sr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerPhoneno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleQuantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SalePrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleDate)
+                    </td>
+                    <td>
+                        <a href="/Saleflow/detailsalehistory?Sr=@item.Sr" class="btn btn-default"> Details </a>
+                        <a href="/Saleflow/deletesalehistory?Sr=@item.Sr" class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @section scripts
+{
+        <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+        </script>
+    }

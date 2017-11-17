@@ -1,0 +1,61 @@
+@model IEnumerable<asp_project1.Models.Vendor>
+
+    @{
+        ViewData["Title"] = "viewvendors";
+    }
+
+    <h2>View all vendors</h2>
+
+    <p>
+
+    </p>
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorPhoneno)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VendorId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VendorName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VendorPhoneno)
+                    </td>
+                    <td>
+                        <a href="/Purchaseflow/detailvendor?VendorId=@item.VendorId" class="btn btn-default"> Details </a>
+                        <a href="/Purchaseflow/editvendor?VendorId=@item.VendorId" class="btn btn-warning"> Edit </a>
+                        <a href="/Purchaseflow/deletevendor?VendorId=@item.VendorId" class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section scripts
+{
+        <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+        </script>
+    }
+

@@ -1,0 +1,65 @@
+@model asp_project1.Models.ShopStaff
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h2>Detail of members</h2>
+
+<div>
+    <h4>ShopStaff</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StaffId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StaffId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        </dl>
+</div>
+<div>
+    <a href="viewallusers">Back to List</a>
+</div>

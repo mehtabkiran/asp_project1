@@ -1,0 +1,88 @@
+@model asp_project1.Models.Salefinal
+
+@{
+    ViewData["Title"] = "addsale";
+}
+
+<h2>Add sale</h2>
+
+@Html.AntiForgeryToken();
+<center>
+    @if (ViewBag.Message != " " && ViewBag.Message != null)
+    {
+        <h1 class=" alert alert-success">
+            @ViewBag.Message
+        </h1>
+
+    }
+
+
+    <form asp-action="addsale">
+        <div class="form-horizontal">
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SaleItemName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="SaleItemName" class="form-control" asp-items="@(new SelectList(@ViewBag.listitem,"ItemName","ItemModel"))"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaleDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SaleDate" class="form-control" id="date" />
+                    <span asp-validation-for="SaleDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalePrice" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SalePrice" class="form-control" />
+                    <span asp-validation-for="SalePrice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaleQuantity" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SaleQuantity" class="form-control" />
+                    <span asp-validation-for="SaleQuantity" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CustomerName" class="form-control" />
+                    <span asp-validation-for="CustomerName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="CustomerPhoneno" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="CustomerPhoneno" class="form-control" />
+                    <span asp-validation-for="CustomerPhoneno" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Sale" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+    </center>
+    <div></div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+        <script>
+
+            $(function () {
+                $('#date').datepicker();
+
+            });
+
+        </script>
+
+    }
+

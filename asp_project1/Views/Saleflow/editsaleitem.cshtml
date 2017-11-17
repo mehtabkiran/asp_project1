@@ -1,0 +1,77 @@
+@model asp_project1.Models.SaleItem
+
+@{
+    ViewData["Title"] = "editsaleitem";
+}
+
+<h2>Edit sale item</h2>
+
+@Html.AntiForgeryToken();
+<center>
+    <form asp-action="editsaleitem">
+        <div class="form-horizontal">
+            <h4>Sold Item</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SaleId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SaleId" class="form-control" readonly />
+                    <span asp-validation-for="SaleId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaleItemName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SaleItemName" class="form-control" />
+                    <span asp-validation-for="SaleItemName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaleDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SaleDate" class="form-control" id="date" />
+                    <span asp-validation-for="SaleDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalePrice" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SalePrice" class="form-control" />
+                    <span asp-validation-for="SalePrice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="SaleQuantity" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="SaleQuantity" class="form-control" />
+                    <span asp-validation-for="SaleQuantity" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+    </center>
+    <div>
+        <a asp-action="viewsaleitem">Back to List</a>
+    </div>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+        <script>
+
+        $(function () {
+            $('#date').datepicker();
+
+        });
+
+        </script>
+
+    }
+
+
+

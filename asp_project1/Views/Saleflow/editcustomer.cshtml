@@ -1,0 +1,47 @@
+@model asp_project1.Models.Customer
+
+@{
+    ViewData["Title"] = "editcustomer";
+}
+
+<h2>Edit customer</h2>
+@Html.AntiForgeryToken();
+<center>
+<form asp-action="editcustomer">
+    <div class="form-horizontal">
+       <h2> Customer</h2>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CustomerId" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CustomerId" class="form-control"readonly />
+                <span asp-validation-for="CustomerId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustomerName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustomerPhoneno" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="CustomerPhoneno" class="form-control" />
+                <span asp-validation-for="CustomerPhoneno" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+</center>
+<div>
+    <a asp-action="viewcustomer">Back to List</a>
+</div>
+

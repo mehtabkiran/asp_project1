@@ -1,0 +1,78 @@
+@model IEnumerable<asp_project1.Models.PurchaseHistory>
+
+@{
+    ViewData["Title"] = "viewpurchasehistory";
+}
+
+<h2>Purchase History</h2>
+
+<table class="table" id="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VendorPhoneno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchaseItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchaseQuantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchasePrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchaseDate)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorPhoneno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchasePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+            <td>
+                <a href="/Purchaseflow/detailpurchasehistory?Sr=@item.Sr" class="btn btn-default"> Details </a>
+                <a href="/Purchaseflow/detelepurchasehistory?Sr=@item.Sr" class="btn btn-danger"> Delete </a>
+</td>
+        </tr>
+}
+    </tbody>
+</table>
+@section scripts
+{
+    <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+    </script>
+}

@@ -1,0 +1,83 @@
+@model asp_project1.Models.Item
+
+@{
+    ViewData["Title"] = "edit";
+}
+
+<h2>Edit a product</h2>
+
+@Html.AntiForgeryToken();
+<center>
+    <form asp-action="edit">
+        <div class="form-horizontal">
+            <h4>Item</h4>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ItemId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ItemId" class="form-control" readonly />
+                    <span asp-validation-for="ItemId" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ItemName" class="form-control" />
+                    <span asp-validation-for="ItemName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemPrice" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ItemPrice" class="form-control" />
+                    <span asp-validation-for="ItemPrice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemDescription" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ItemDescription" class="form-control" />
+                    <span asp-validation-for="ItemDescription" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemQuantity" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ItemQuantity" class="form-control" />
+                    <span asp-validation-for="ItemQuantity" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemModel" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ItemModel" class="form-control" />
+                    <span asp-validation-for="ItemModel" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemColor" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ItemColor" class="form-control" />
+                    <span asp-validation-for="ItemColor" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ItemCategory" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="ItemCategory" class="form-control" />
+                    <span asp-validation-for="ItemCategory" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+    </center>
+    <div>
+        <a asp-action="viewallproduct">Back to List</a>
+    </div>
+

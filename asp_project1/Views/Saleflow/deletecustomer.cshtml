@@ -1,0 +1,40 @@
+@model asp_project1.Models.Customer
+
+@{
+    ViewData["Title"] = "deletecustomer";
+}
+
+<h2>deletecustomer</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerPhoneno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerPhoneno)
+        </dd>
+    </dl>
+    
+    <form asp-action="deletecustomer">
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </form>
+</div>

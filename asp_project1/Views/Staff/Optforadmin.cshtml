@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">ADMIN</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" style="">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="viewallusers">Users <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="../Item/viewallcategory/">Categories</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Product/viewallproduct">Items</a>
+            <li class="nav-item">
+                <a class="nav-link" href="../Purchaseflow/viewpurchaseitem/">Purchased Items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Saleflow/viewsaleitem/">Sold items</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Purchaseflow/viewvendors/">Vendors</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Saleflow/viewcustomer/">Customers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Purchaseflow/viewpurchasehistory/">Purchase History</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Saleflow/viewsalehistory/">Sale history</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<img src="http://placehold.it/1100x400">
+
+@model asp_project1.Models.ShopStaff
+
+<h2>Register a New Staff member</h2>
+
+@Html.AntiForgeryToken();
+    <form asp-action="addmember">
+        <div class="form-horizontal">
+         
+            @if (ViewBag.Message != " " && ViewBag.Message != null)
+            {
+                <h1 class=" alert alert-success">
+                    @ViewBag.Message
+                </h1>
+
+            }
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Username" class="form-control" />
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Designation" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Designation" class="form-control" />
+                    <span asp-validation-for="Designation" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Salary" class="form-control" />
+                    <span asp-validation-for="Salary" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Register" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+
+<a href="dashboard">LogOut</a>

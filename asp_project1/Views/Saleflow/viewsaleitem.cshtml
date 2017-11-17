@@ -1,0 +1,72 @@
+@model IEnumerable<asp_project1.Models.SaleItem>
+
+    @{
+        ViewData["Title"] = "viewsaleitem";
+    }
+
+    <h2>View Sale items</h2>
+
+    <p>
+        <a asp-action="addsale">Create New</a>
+    </p>
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalePrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SaleQuantity)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SalePrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SaleQuantity)
+                    </td>
+                    <td>
+                        <a href="/Saleflow/detailsaleitem?SaleId=@item.SaleId" class="btn btn-default"> Details </a>
+                        <a href="/Saleflow/editsaleitem?SaleId=@item.SaleId" class="btn btn-warning"> Edit </a>
+                        <a href="/Saleflow/deletesaleitem?SaleId=@item.SaleId" class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section scripts
+{
+        <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+        </script>
+    }

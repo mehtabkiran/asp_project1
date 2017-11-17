@@ -1,0 +1,57 @@
+@model IEnumerable<asp_project1.Models.Category>
+
+    @{
+        ViewData["Title"] = "viewallcategoryU";
+    }
+
+    <h2>List of all categories</h2>
+
+    <p>
+    </p>
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CategoryType)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CategoryType)
+                    </td>
+                    <td>
+                        <a href="/Item/detailU?CategoryId=@item.CategoryId" class="btn btn-default"> Details </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section scripts
+{
+        <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+        </script>
+    }

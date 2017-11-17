@@ -1,0 +1,72 @@
+@model IEnumerable<asp_project1.Models.PurchaseItem>
+
+    @{
+        ViewData["Title"] = "viewpurchaseitem";
+    }
+
+    <h2>Purchased Items</h2>
+
+    <p>
+        <a asp-action="addpurchase">Create New</a>
+    </p>
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchaseId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchaseItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchaseQuantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchasePrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PurchasingDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchaseId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchaseItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchaseQuantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchasePrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PurchasingDate)
+                    </td>
+                    <td>
+                        <a href="/Purchaseflow/detailpurchaseitem?PurchaseId=@item.PurchaseId" class="btn btn-default"> Details </a>
+                        <a href="/Purchaseflow/editpurchaseitem?PurchaseId=@item.PurchaseId" class="btn btn-warning"> Edit </a>
+                        <a href="/Purchaseflow/deletepurchaseitem?PurchaseId=@item.PurchaseId" class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section scripts
+{
+        <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+        </script>
+    }

@@ -1,0 +1,90 @@
+@model IEnumerable<asp_project1.Models.Item>
+
+    @{
+        ViewData["Title"] = "viewallproduct";
+    }
+
+    <h2>View all products</h2>
+
+    <p>
+        <a asp-action="addproduct">Add a product</a>
+    </p>
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemDescription)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemQuantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemModel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemColor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ItemCategory)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemQuantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemModel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemColor)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemCategory)
+                    </td>
+                    <td>
+                        <a href="/Product/detail?ItemId=@item.ItemId" class="btn btn-default"> Details </a>
+                        <a href="/Product/edit?ItemId=@item.ItemId" class="btn btn-warning"> Edit </a>
+                        <a href="/Product/delete?ItemId=@item.ItemId" class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section scripts
+{
+        <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+        </script>
+    }

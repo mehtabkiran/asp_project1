@@ -1,0 +1,115 @@
+<img src="http://placehold.it/1100x400">
+
+</hr>
+@model asp_project1.Models.ShopStaff
+
+@{
+    ViewData["Title"] = "dashboard";
+}
+<CENTER>
+    <h1 class="alert alert-link"><span class="glyphicon glyphicon-dashboard"></span>DASHBOARD</h1>
+</CENTER>
+@Html.AntiForgeryToken();
+@if (ViewBag.Message != " " && ViewBag.Message != null)
+{
+    <h1 class=" alert alert-danger">
+        @ViewBag.Message
+    </h1>
+
+}
+<div class="row">
+    <div class="col-md-3">
+        <center>
+            <form asp-action="dashboard">
+                <div class="form-horizontal">
+                    <h4>LOGIN</h4>
+                    <hr />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                    <div class="form-group">
+                        <label asp-for="Username" class="col-md-2 control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="Username" class="form-control" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="col-md-2 control-label"></label>
+                        <div class="col-md-10">
+                            <input asp-for="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="LogIn" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </center>
+        <hr width="1" size="500">
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="alert alert-info" id="uc"></h2>
+            </div>
+            <div class="col-md-6">
+                <h2 class="alert alert-warning" id="cc"></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+                <h2 class="alert alert-warning" id="ic"></h2>
+            </div>
+            <div class="col-md-6">
+
+                <h2 class="alert alert-info" id="pic"></h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+
+
+                <h2 class="alert alert-info" id="vc"></h2>
+            </div>
+            <div class="col-md-6">
+
+                <h2 class="alert alert-warning" id="sic"></h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+
+                <h2 class="alert alert-warning" id="cusc"></h2>
+            </div>
+        </div>
+
+
+
+    </div>
+        </div>
+        @section Scripts{
+            <script>
+                $(function () {
+                    $('#uc').load('/Staff/getusercount/');
+
+                    $('#cc').load('/Item/getcatcount/');
+
+                    $('#ic').load('/Product/getitemcount/');
+                    $('#pic').load('/Purchaseflow/getpicount/');
+                    $('#vc').load('/Purchaseflow/getvendorcount/');
+
+                    $('#sic').load('/Saleflow/getsicount/');
+                    $('#cusc').load('/Saleflow/getcustcount/');
+
+                });
+
+
+            </script>
+        }

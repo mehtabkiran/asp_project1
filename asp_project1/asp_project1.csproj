@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
@@ -8,7 +8,18 @@
   <PropertyGroup>
     <UserSecretsId>aspnet-asp_project1-1ddf4fba-c9a2-48ca-afb1-79e1a570ae5c</UserSecretsId>
   </PropertyGroup>
+
   <ItemGroup>
+    <Content Include="wwwroot\css\jquery-ui.min.css" />
+    <Content Include="wwwroot\js\jquery-ui.min.js" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrapnew.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\bootstrapnewtheme.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\cyborg.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\sketchy.css" />
+    <Content Include="wwwroot\lib\bootstrap\dist\css\solar.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="jQuery.UI.Combined" Version="1.12.1" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="1.1.2" />
@@ -29,6 +40,15 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.1" />
     <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="1.0.1" />
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Item\" />
+    <Folder Include="Views\Saleflow\" />
+    <Folder Include="Views\Product\" />
+    <Folder Include="Views\Purchaseflow\" />
+    <Folder Include="Views\Purchaseflow\" />
+    <Folder Include="Views\Saleflow\" />
+    <Folder Include="Views\Staff\" />
   </ItemGroup>
 
 </Project>

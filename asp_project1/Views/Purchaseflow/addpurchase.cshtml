@@ -1,0 +1,97 @@
+@model asp_project1.Models.Purchasefinal
+
+@{
+    ViewData["Title"] = "addpurchase";
+}
+
+@Html.AntiForgeryToken();
+<center>
+    <h2>Add to stock</h2>
+    @if (ViewBag.Message != " " && ViewBag.Message != null)
+    {
+        <h1 class=" alert alert-success">
+            @ViewBag.Message
+        </h1>
+
+    }
+
+
+    <form asp-action="addpurchase">
+        <div class="form-horizontal">
+             <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PurchaseItemName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="PurchaseItemName" class="form-control" />
+                    <span asp-validation-for="PurchaseItemName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="PurchaseQuantity" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="PurchaseQuantity" class="form-control" />
+                    <span asp-validation-for="PurchaseQuantity" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="PurchasePrice" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="PurchasePrice" class="form-control" />
+                    <span asp-validation-for="PurchasePrice" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="PurchasingDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="PurchasingDate" class="form-control" id="date" />
+                    <span asp-validation-for="PurchasingDate" class="text-danger"></span>
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <label class="col-md-2 control-label"> Select Vendor</label>
+                    <div class="col-md-10">
+                        New<input type="checkbox" id="chckbox1" value="New">
+                        Existing<input type="checkbox" id="chckbox2" value="Existing">
+                    </div>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="VendorName" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="VendorName" class="form-control" />
+                    <span asp-validation-for="VendorName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="VendorPhoneno" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="VendorPhoneno" class="form-control" />
+                    <span asp-validation-for="VendorPhoneno" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Purchase" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+    </center>
+    <div> </div>
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+        <script>
+
+            $(function () {
+                $('#date').datepicker();
+
+            });
+
+        </script>
+
+    }
+
+

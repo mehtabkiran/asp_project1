@@ -1,0 +1,91 @@
+@model IEnumerable<asp_project1.Models.ShopStaff>
+
+@{
+    ViewData["Title"] = "View All Users";
+}
+
+<h2>View all Users</h2>
+
+<p>
+    <a href="addmember/">Create New</a>
+</p>
+<table class="table" id="mytable">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StaffId)
+            </th>    
+            <th>
+                    @Html.DisplayNameFor(model => model.Username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Designation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Address)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salary)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StaffId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Designation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a href="/Staff/detail?StaffId=@item.StaffId" class="btn btn-default"> Details </a>
+                <a href="/Staff/edit?StaffId=@item.StaffId" class="btn btn-warning"> Edit </a>
+                <a href="/Staff/delete?StaffId=@item.StaffId" class="btn btn-danger"> Delete </a>
+  </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+    </script>
+}

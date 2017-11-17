@@ -1,0 +1,46 @@
+@model asp_project1.Models.SaleItem
+
+@{
+    ViewData["Title"] = "detailsaleitem";
+}
+
+<h2>Detail of sale item</h2>
+
+<div>
+    <h4>Sold Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleItemName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleItemName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SalePrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SalePrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleQuantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleQuantity)
+        </dd>
+    </dl>
+</div>
+<div><a asp-action="viewsaleitem">Back to List</a>
+</div>

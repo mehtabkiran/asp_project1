@@ -1,0 +1,60 @@
+@model IEnumerable<asp_project1.Models.Customer>
+
+    @{
+        ViewData["Title"] = "viewcustomer";
+    }
+
+    <h2>View Customer</h2>
+
+    <p>
+
+    </p>
+    <table class="table" id="mytable">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CustomerPhoneno)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerPhoneno)
+                    </td>
+                    <td>
+                        <a href="/Saleflow/detailcustomer?CustomerId=@item.CustomerId" class="btn btn-default"> Details </a>
+                        <a href="/Saleflow/editcustomer?CustomerId=@item.CustomerId" class="btn btn-warning"> Edit </a>
+                        <a href="/Saleflow/deletecustomer?CustomerId=@item.CustomerId" class="btn btn-danger"> Delete </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @section scripts
+{
+        <script>
+        $(function ()
+        {
+            $('#mytable').DataTable();
+        }
+        );
+
+        </script>
+    }

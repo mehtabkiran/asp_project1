@@ -1,0 +1,58 @@
+@model asp_project1.Models.SaleHistory
+
+@{
+    ViewData["Title"] = "detailsalehistory";
+}
+
+<h2>Detail of sale history</h2>
+
+<div>
+    <h4>SaleHistory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sr)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sr)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerPhoneno)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerPhoneno)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleItemName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleItemName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleQuantity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleQuantity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SalePrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SalePrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleDate)
+        </dd>
+    </dl>
+</div>
+<div><a asp-action="viewsalehistory">Back to List</a>
+</div>
